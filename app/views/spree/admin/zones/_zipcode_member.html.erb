@@ -1,5 +1,16 @@
-<li data-hook="zipcode_member">
-  <%= f.hidden_field :zoneable_type, :value => 'Spree::Zipcode' %>
-  <%= f.collection_select(:zoneable_id, @zipcodes, :id, :name, :include_blank => true) %>
-  <%= remove_nested f %>
-</li>
+<!-- <li data-hook="zipcode_member"> -->
+  <%#= zone_form.hidden_field :zoneable_type, :value => 'Spree::Zipcode' %>
+  <%#= zone_form.collection_select(:zoneable_id, @zipcodes, :id, :name, :include_blank => true) %>
+  <%#= remove_nested zone_form %>
+<!-- </li> -->
+
+<div id="zipcode_members" data-hook="member" class="omega six columns">
+  <fieldset class="no-border-bottom">
+    <legend align="center"><%= Spree.t(:zipcodes) %></legend>
+
+    <%= zone_form.field_container :zipcode_ids do %>
+      <%= zone_form.label :zipcode_ids, Spree.t(:zipcodes) %><br>
+      <%= zone_form.collection_select :zipcode_ids, @zipcodes, :id, :name, {}, { :multiple => true, :class => "select2 fullwidth" } %>
+    <% end %>
+  </fieldset>
+</div>
