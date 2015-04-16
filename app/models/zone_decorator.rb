@@ -2,7 +2,7 @@
 # with added support for zipcode zone members
 Spree::Zone.class_eval do
 
-  attr_accessible :zipcode_ids
+  # attr_accessible :zipcode_ids
 
   def kind
     member = self.members.last
